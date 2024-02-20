@@ -2,38 +2,41 @@
   <div class="all">
     <header>
       <div class="wrapper">
-        <!-- При ширине меньше 1200px показывается кнопка для открытия Header1 -->
-        <!-- <button v-if="windowWidth < 1200" @click="toggleHeader" class="open-header-btn">Open Header1</button> -->
-        <Header1 v-if="windowWidth >= 1200" />
+        <Header1 />
       </div>
     </header>
 
-    <aside>
+    <button @click="toggleSidebar" class="toggle-btn" v-if="windowWidth <= 1200">☰</button>
+
+    <aside :class="{ 'show-sidebar': showSidebar }">
       <ButtonBack v-if="windowWidth >= 1200"/>
-      <Sidebar v-if="windowWidth >= 1200"/>
-      <AdditionalInformation v-if="windowWidth >= 1200"/>
+      <Sidebar />
+      <AdditionalInformation/>
+      <button @click="toggleSidebar" class="close-btn">✕</button>
     </aside>
 
-    <main>
+    <main :class="{ 'blur-background': showSidebar }">
       <Background />
     </main>
   </div>
 </template>
 
 <script setup>
-  import { ref, onMounted, onUnmounted } from 'vue'; // Используем Vue 3
-  import Header1 from './components/Header.vue'
-  import Sidebar from './components/Sidebar.vue'
-  import ButtonBack from './components/buttons/ButtonBack.vue'
+  import { ref } from 'vue';
+  import Header1 from './components/Header.vue';
+  import Sidebar from './components/Sidebar.vue';
+  import ButtonBack from './components/buttons/ButtonBack.vue';
   import AdditionalInformation from './components/AdditionalInformation.vue';
   import Background from './components/Background.vue';
 
   const windowWidth = ref(window.innerWidth);
-</script>
 
-<style scoped>
-  /* Стили остаются без изменений */
-</style>
+  const showSidebar = ref(false);
+
+  const toggleSidebar = () => {
+    showSidebar.value = !showSidebar.value;
+  };
+</script>
 
 
 <style scoped>
@@ -56,6 +59,46 @@
   @media (max-width: 1200px) {
     .all {
       grid-template-areas: 'header header' 'content content';
+      grid-template-columns: 100%;
+    }
+
+    .toggle-btn {
+      position: fixed;
+      left: -5px;
+      top: 100px;
+      background: rgb(255, 255, 255);
+      border-radius: 5px 35px 35px 5px;
+      width: 40px;
+      height: 60px;
+      z-index: 3;
+      border: 1px solid rgb(169, 169, 169);
+    }
+
+    .show-sidebar {
+      transform: translateX(-380%);
+    }
+
+    .close-btn {
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      font-size: 15px;
+      font-weight: 700;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+    }
+
+    .blur-background {
+      filter: blur(5px);
+    }
+
+    aside {
+      transform: translateX(-600%);
+      transition: transform 0.3s ease;
+      position: relative;
+      top: -210px;
+      z-index: 10;
     }
   }
 

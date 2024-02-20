@@ -50,6 +50,12 @@
         }
     }
 
+    @media (max-width: 800px) {
+        .background {
+            width: 1000px !important;
+        }
+    }
+
     .PreviewAndBar{
         display: flex;
         flex-direction: column;

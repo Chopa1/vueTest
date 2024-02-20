@@ -1,8 +1,10 @@
 <script setup>
+  import { ref } from 'vue'; // Используем Vue 3
   import IconTusur from './icons/IconTusur.vue';
   import IconNotification from './icons/IconNotification.vue'
   import IconMessage from './icons/IconMessage.vue'
   import IconCalendar from './icons/IconCalendar.vue'
+  const windowWidth = ref(window.innerWidth);
 </script>
 
 <template>
@@ -29,7 +31,7 @@
         </div>
       </div>
     </div>
-    <div class="profile">
+    <div class="profile" >
       <div class="fio">
         <img src="/фото студента.png" width="28px" height="29px">
         <span class="TextExit">Иван Иванов</span>
@@ -51,6 +53,21 @@
   height: 58px;
   width: 100%;
   align-items: center;
+}
+
+@media (max-width: 1200px) {
+  .logo {
+    width: 200px !important;
+  }
+
+  .profile {
+    position: absolute;
+    right: 0px !important;
+  }
+
+  .head {
+    position: relative !important;
+  }
 }
 
 .profile {
@@ -127,7 +144,6 @@
   width: 265px;
   height: 23px;
   padding: 5px 0px;
-  border: 0px 1px 0px 0px;
   border-right: 1px solid #DADDE5;
   justify-content: center;
   flex-wrap: wrap;

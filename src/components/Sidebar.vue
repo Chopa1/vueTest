@@ -87,6 +87,12 @@
         transform: rotate(45deg);
         transition: transform 0.3s ease;
     }
+
+    @media (max-width: 1200px) {
+      .content-dropdown {
+        padding-right: 50px !important;
+      }
+    }
     
     .content-dropdown {
       margin-top: 16px;
