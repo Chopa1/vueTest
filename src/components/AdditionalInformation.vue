@@ -44,6 +44,7 @@
         line-height: 22px;
         letter-spacing: 0em;
         text-align: left;
+        color: rgba(46, 49, 70, 1);
     }
 
     @media (max-width: 1200px) {
