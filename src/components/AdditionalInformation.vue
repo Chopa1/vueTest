@@ -24,26 +24,32 @@
         flex-direction: row;
         align-items: center;
         text-decoration: none;
+        gap: 20px;
     }
 
     .AddinInform{
         display: flex;
         flex-direction: column;
         width: 100%;
-        padding: 0px 20px 0px 23px;
-        gap: 16px;
+        padding: 0px 30px 0px 30px;
+        gap: 20px;
     }
 
     .TextAddin {
         display: flex;
         align-items: center;
         font-family: "Montserrat", sans-serif;
-        font-size: 11px;
+        font-size: 0.72916vw;
         font-weight: 400;
-        line-height: 18px;
+        line-height: 22px;
         letter-spacing: 0em;
-        color: #2E3146;
-        padding-left: 17px;
-        padding-top: 1px;
+        text-align: left;
     }
+
+    @media (max-width: 1200px) {
+        .TextAddin {
+            font-size: 14px;
+        }
+    }
+
 </style>

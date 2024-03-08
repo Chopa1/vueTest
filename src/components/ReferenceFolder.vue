@@ -10,11 +10,9 @@
                 <IconFolder />
                 <h4 class="NameTask">Список литературы по модулю</h4>
             </div>
-            <div class="conditions">
-                <button class="done">
-                    <span class="ConText2">Отметить как выполненный</span>
-                </button>
-            </div>
+            <button class="done">
+                <span class="ConText2">Отметить как выполненный</span>
+            </button>
         </div>
         <div class="info">
             <IconLock />
@@ -31,25 +29,48 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
     .fullRef {
         display: flex;
-        padding: 7px 16px 14px 16px;
         align-items: flex-start;
         flex-direction: column;
         background: rgba(233, 242, 255, 0.4);
+        padding: 9px 20px 10px 20px;
         border-radius: 5px;
-        margin-right: 24px;
+        gap: 6px;
+
+    }
+
+    @media (max-width: 1200px) {
+        .reference {
+            flex-direction: column;
+        }
+
+        .NameTask {
+            font-size: 12px !important;
+            width: 150px !important;
+        }
+
+        .ConText2 {
+            font-size: 14px !important;
+        }
+        
+        .text1 {
+            font-size: 10px !important;
+        }
+
+        .fullText {
+            width: 150px !important;
+        }
     }
 
     .fullText {
         display: flex;
         flex-direction: column;
-        gap: 3px;
     }
 
     .text1 {
         font-family: "Montserrat", sans-serif;
-        font-size: 9.5px;
-        font-weight: 500;
-        line-height: 11.5px;
+        font-size: 0.625vw;
+        font-weight: 400;
+        line-height: 19px;
         letter-spacing: 0em;
         text-align: left;
     }
@@ -66,23 +87,21 @@
         display: flex;
         flex-direction: row;
         background: rgba(233, 242, 255, 0.6);
-        width: 100%;
-        padding: 9.5px 0px 8px 9.6px;
-        align-items: center;
-        gap: 7.5px;
+        width: 97.5%;
+        padding: 7px 11px;
         border-radius: 5px;
+        gap: 10px;
+        align-items: center;
     }
 
     .done {
-       display: flex;
-       width: 100%;
-       padding-left: 11px;
-       padding-top: 3px;
-       border-radius: 5px;
-       padding-right: 10px;
-       border: 1.5px solid rgba(218, 221, 229, 1);
-       background: none;
-       margin: 0;
+        display: flex;
+        padding: 7px 15px 7px 15px;
+        border-radius: 6px;
+        gap: 5px;
+        border: 1px solid rgba(218, 221, 229, 1);
+        background: none;
+        margin: 0;
     }
 
     .ConText2 {
@@ -90,19 +109,18 @@
         text-align: center;
         white-space: nowrap;
         font-family: "Montserrat", sans-serif;
-        font-size: 11px;
+        font-size: 0.72916vw;
         font-weight: 400;
         line-height: 22px;
         letter-spacing: 0em;
         text-align: left;
         color: rgba(70, 73, 94, 1);
-
     }
 
     .task {
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 19px;
         width: 100%;
     }
 
@@ -111,12 +129,11 @@
         margin: 0;
         font-family: "Montserrat", sans-serif;
         color: rgba(46, 49, 70, 1);
-        text-align: center;
-        font-size: 12.7px;
-        font-weight: 500;
-        line-height: 27px;
+        font-size: 0.83vw;
+        font-weight: 400;
+        line-height: 22px;
         letter-spacing: 0em;
         text-align: left;
-        padding: 2px 0px 0px 10px;
+        padding-top: 3px;
     }
 </style>

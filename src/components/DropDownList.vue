@@ -1,44 +1,49 @@
 <script setup>
   import IconSidebar from './icons/IconSidebar.vue';
   import IconCircle from './icons/IconCircle.vue';
+  import IconArrow from './icons/IconArrow.vue';
 </script>
 
 <template>
     <div class="dropdown2">
-        <button class="dropdown-toggle" @click="toggleDropdown">
+      <div class="dropdown3">
+        <div class="dropdown-toggle" @click="toggleDropdown">
           <span class="title">{{ title }}</span>
-          <i :class="{'arrow-right2': !isOpen, 'arrow-down2': isOpen}"></i>
-        </button>
+          <div :class="{'arrow-right2': !isOpen, 'arrow-down2': isOpen}">
+            <IconArrow />
+          </div>
+      </div>
       <div class="dropdown-menu" :class="{ 'show': isOpen }">
         <a class="dropdown-item" href="#">
-          <IconSidebar />
-          <span class="dropdown-itemText">Задание</span>
-          <div class="circle">
-            <IconCircle />
+          <div class="IconAndTitle">
+            <IconSidebar />
+            <span class="title">Задание</span>
           </div>
+          <IconCircle />
         </a>
         <a class="dropdown-item" href="#">
-          <IconSidebar />
-          <span class="dropdown-itemText">Лекция</span>
-          <div class="circle">
-            <IconCircle />
+          <div class="IconAndTitle">
+            <IconSidebar />
+            <span class="title">Лекция</span>
           </div>
+          <IconCircle />
         </a>
         <a class="dropdown-item" href="#">
-          <IconSidebar />
-          <span class="dropdown-itemText">Тест</span>
-          <div class="circle">
-            <IconCircle />
+          <div class="IconAndTitle">
+            <IconSidebar />
+            <span class="title">Тест</span>
           </div>
+          <IconCircle />
         </a>
         <a class="dropdown-item" href="#">
-          <IconSidebar />
-          <span class="dropdown-itemText">Форум</span>
-          <div class="circle">
-            <IconCircle />
+          <div class="IconAndTitle">
+            <IconSidebar />
+            <span class="title">Форум</span>
           </div>
+          <IconCircle />
         </a>
       </div>
+    </div>
     </div>
   </template>
   
@@ -67,62 +72,70 @@
 
     @import url("https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap");
     .dropdown2 {
-      padding: 15.5px 0px 10.5px 59px;
+      height: fit-content;
+      padding: 19px 30px 18px 74px;
+      border-radius: 8px;
+    }
+
+    .dropdown3 {
+      display: flex;
+      flex-direction: column;
+      height: fit-content;
+      gap: 15.5px;
     }
 
     .title {
-      width: 155px;
+      height: 100%;
+      font-family: "Montserrat", sans-serif;
+      font-size: 0.72916vw;
+      font-weight: 400;
+      line-height: 22px;
+      letter-spacing: 0em;
+      text-align: left;
+      color: rgba(46, 49, 70, 1);
+    }
+
+    @media (max-width: 1200px) {
+      .title {
+        font-size: 14px;
+      }
     }
 
     .arrow-right2 {
-        border: solid #71809B;
-        border-width: 0 2px 2px 0;
-        padding: 2.5px;
-        transform: rotate(-45deg);
-        transition: transform 0.3s ease;
+      transform: rotate(-90deg);
+      transition: transform 0.3s ease;
+      height: fit-content;
     }
 
-    i {
-        display: flex;
-        position: absolute;
-        right: -21px;
-        top: 5px;
+    .IconAndTitle {
+      max-width: 177px;
+      max-height: 22px;
+      gap: 20px;
+      display: flex;
     }
     
     .arrow-down2 {
-        border: solid #71809B;
-        border-width: 0 2px 2px 0;
-        padding: 2.5px;
-        transform: rotate(45deg);
-        transition: transform 0.3s ease;
+      transform: rotate(0deg);
+      transition: transform 0.3s ease;
+      height: fit-content;
     }
     
     .dropdown-toggle {
-        cursor: pointer;
-        border: 0;
-        padding: 0;
-        background-color: #EEF3FA;
-        display: flex;
-        font-family: "Montserrat", sans-serif;
-        font-size: 11px;
-        font-weight: 400;
-        line-height: 18px;
-        letter-spacing: 0em;
-        text-align: left;
-        color: #2E3146;
-        position: relative;
-        margin-bottom: 10px;
+      cursor: pointer;
+      display: flex;
+      width: 100%;
+      height: fit-content;
+      gap: 10px
     }
     
     .dropdown-menu {
-        display: none;
-        bottom: 0;
+      display: none;
     }
 
     .dropdown-itemText {
       display: flex;
       font-family: "Montserrat", sans-serif;
-      font-size: 11px;
+      font-size: 10.9px;
       color: #2E3146;
       font-weight: 400;
       line-height: 18px;
@@ -133,29 +146,25 @@
     .dropdown-menu.show {
         display: flex;
         flex-direction: column;
-        gap: 3px;
-        padding-right: 24px;
+        width: 100%;
+        height: fit-content;
+        gap: 7px
     }
     
     .dropdown-item {
-        color: #212529;
-        padding: 5px 0px 5px 16px;
-        text-decoration: none;
-        display: flex;
-        border-radius: 6px;
-        align-items: center;
-        position: relative;
-    }
-
-    .circle {
+      text-decoration: none;
       display: flex;
-      position: absolute;
-      right: 12.5px;
-      top: 10.5px;
+      align-items: center;
+      position: relative;
+      max-height: 34px;
+      padding: 5px 10px 5px 20px;
+      border-radius: 6px;
+      justify-content: space-between;
     }
     
     .dropdown-item:hover {
-        background-color: #E0E8F4;
+        background-color: rgba(224, 232, 244, 1);
+;
     }
   </style>
   

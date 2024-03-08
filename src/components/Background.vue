@@ -11,16 +11,16 @@
             <img src="/Монтажная область 1@4x 1.png" height="200px">
         </div>
         <div class="GradBack">
+        </div>
+        <div class="content">
             <div class="themes">
                 <div class="PreviewAndBar">
                     <Preview />
                     <Bar />
                 </div>
-                <div class="themes1">
-                    <Theme themeName="Общее" :all = "true"/>
-                    <Theme themeName="Модуль 1. Объекты интеллектуальной собственности. Интеллектуальные права. Правовая охрана объектов интеллектуальной собственности" :all = "false"/>
-                    <Theme2 themeName="Модуль 2. Объекты интеллектуальной собственности. Интеллектуальные права." :all = "false"/>
-                </div>
+                <Theme themeName="Общее" :all = "true"/>
+                <Theme themeName="Модуль 1. Объекты интеллектуальной собственности. Интеллектуальные права. Правовая охрана объектов интеллектуальной собственности" :all = "false"/>
+                <Theme2 themeName="Модуль 2. Объекты интеллектуальной собственности. Интеллектуальные права." :all = "false"/>
             </div>
             <div class="end">
                 <p class="TextEnd">ДПО СибГМУ</p>
@@ -35,31 +35,18 @@
     .TextEnd {
         color: rgba(113, 128, 155, 1);
         font-family: "Montserrat", sans-serif;
-        font-size: 12.5px;
+        font-size: 0.83vw;
         font-weight: 400;
         line-height: 22px;
         letter-spacing: 0em;
         text-align: center;
-        padding-left: 4px;
 
-    }
-
-    @media (max-width: 1200px) {
-        .background {
-            width: 1200px !important;
-        }
-    }
-
-    @media (max-width: 800px) {
-        .background {
-            width: 1000px !important;
-        }
     }
 
     .PreviewAndBar{
         display: flex;
         flex-direction: column;
-        gap: 17px;
+        gap: 20px;
     }
     .background {
         display: flex;
@@ -73,24 +60,29 @@
         width: 100%;
         background: #FFFFFF;
         border-top: 1px solid rgba(218, 221, 229, 1);
-        height: 46px;
+        height: 60px;
         display: flex;
         align-items: center;
         justify-content: center;
-        position: absolute;
-        bottom: -6.7px;
+        position: relative;
+        top: 6px;
     }
 
-    .themes1 {
+    .content {
         display: flex;
+        width: 100%;
+        position: absolute;
+        justify-content: center;
         flex-direction: column;
-        gap: 20px;
+        align-items: center;
+        top: 128px;
     }
 
     .PurpleBackground{
-        z-index: 0;
+        z-index: -2;
         width: 100%;
         display: flex;
+        position: fixed;
     }
 
     img {
@@ -102,20 +94,36 @@
         display: flex;
         position: relative;
         flex-direction: column;
-        top: -77px;
-        gap: 19px;
-        width: 870px;
+        top: -42px;
+        gap: 25px;
+        width: 69.5%;
+        z-index: 2;
     }
+
+    @media (max-width: 1200px) {
+        .themes {
+            width: 85%;
+        }
+
+        .GradBack {
+            width: 95% !important;
+        }
+
+        .TextEnd {
+            font-size: 16px !important;
+        }
+    }
+
     .GradBack {
         display: flex;
-        position: absolute;
-        top: 132px;
-        width: 100%;
-        height: fit-content;
+        position: fixed;
+        margin-top: 183px;
+        width: 82.4%;
+        height: 100%;
         background: rgba(245, 245, 245, 1);
-        border-radius: 20px 20px 0px 0px;
+        border-radius: 24px 24px 0px 0px;
         justify-content: center;
-        z-index: 0;
+        z-index: -1;
         flex-direction: column;
         align-items: center;
     }

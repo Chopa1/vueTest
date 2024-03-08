@@ -18,28 +18,35 @@
     #ButtonBack {
         display: flex;
         align-items: center;
-        padding: 0 20px 0px 23px;
+        width: 100%;
+        max-height: 44px;
+        padding: 0px 30px 0px 30px;
+        gap: 10px;
     }
 
     .buttonBack {
         display: flex;
         align-items: center;
-        background: #FFFFFF;
-        border: 1px solid #DADDE5;
+        width: 100%;
+        height: 100%;
+        padding: 10px 26px;
         border-radius: 6px;
-        padding: 7px 20px 6px 21.6px;
+        border: 1px solid rgba(218, 221, 229, 1);
+        gap: 20px;
+        background: none;
     }
 
     .TextButton {
         display: flex;
         align-items: center;
-        padding: 1px 0px 0px 14px;
         font-family: "Montserrat", sans-serif;
-        font-size: 12px;
+        max-height: 18px;
+        font-size: 0.78125vw;
         font-weight: 400;
         line-height: 18px;
         letter-spacing: 0em;
-        color: #2E3146;
-    }
+        text-align: left;
+        color: rgba(46, 49, 70, 1);
+    }   
 
 </style>

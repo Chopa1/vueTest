@@ -12,7 +12,7 @@
       <ButtonBack v-if="windowWidth >= 1200"/>
       <Sidebar />
       <AdditionalInformation/>
-      <button @click="toggleSidebar" class="close-btn">✕</button>
+      <button v-if="windowWidth <= 1200" @click="toggleSidebar" class="close-btn">✕</button>
     </aside>
 
     <main :class="{ 'blur-background': showSidebar }">
@@ -47,12 +47,15 @@
     display: flex;
     width: 100%;
     grid-area: header;
+    position: fixed;
+    background: #FFFFFF;
+    z-index: 30;
   }
 
   .all {
     width: 100%;
     display: grid;
-    grid-template-columns: 265px 82.5%;
+    grid-template-columns: 17.5% 82.5%;
     grid-template-areas: 'header header' 'sidebar content';
   }
 
@@ -75,7 +78,7 @@
     }
 
     .show-sidebar {
-      transform: translateX(-380%);
+      transform: translateX(0%);
     }
 
     .close-btn {
@@ -96,9 +99,8 @@
     aside {
       transform: translateX(-600%);
       transition: transform 0.3s ease;
-      position: relative;
-      top: -210px;
       z-index: 10;
+      width: 260px !important;
     }
   }
 
@@ -111,13 +113,18 @@
     display: flex;
     flex-wrap: wrap;
     grid-area: sidebar;
-    background: #FFFFFF;
-    padding: 24px 0px 39px 0px;
-    gap: 20px;
+    background: rgba(255, 255, 255, 1);
+    padding: 30px 0px 39px 0px;
+    margin-top: 75px;
+    position: fixed;
+    width: 17.5%;
+    max-height: calc(100vh - 150px);
+    overflow-y: auto;
   }
 
   main {
     grid-area: content;
     height: fit-content;
+    margin-top: 59px;
   }
 </style>

@@ -8,11 +8,9 @@
             <IconGlossary />
             <h4 class="NameTask">Глоссарий</h4>
         </div>
-        <div class="conditions">
-            <button class="done">
-                <span class="ConText2">Отметить как выполненный</span>
-            </button>
-        </div>
+        <button class="done">
+            <span class="ConText2">Отметить как выполненный</span>
+        </button>
     </div>
 </template>
 
@@ -21,21 +19,35 @@
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
     .reference {
         display: flex;
-        padding: 5px 38px 13px 16px;
-        align-items: center;
+        padding: 10px 20px 10px 19px;
+        border-radius: 5px;
         gap: 5px;
+        align-items: center;
+    }
+
+    @media (max-width: 1200px) {
+        .reference {
+            flex-direction: column;
+        }
+
+        .NameTask {
+            font-size: 12px !important;
+            width: 150px !important;
+        }
+
+        .ConText2 {
+            font-size: 14px !important;
+        }
     }
 
     .done {
-       display: flex;
-       width: 100%;
-       padding-left: 11px;
-       padding-top: 3px;
-       border-radius: 5px;
-       padding-right: 12px;
-       border: 1.5px solid rgba(218, 221, 229, 1);
-       background: rgba(255, 255, 255, 1);
-       margin: 0;
+        display: flex;
+        padding: 7px 15px 7px 15px;
+        border-radius: 6px;
+        gap: 5px;
+        border: 1px solid rgba(218, 221, 229, 1);
+        background: rgba(255, 255, 255, 1);
+        margin: 0;
     }
 
     .ConText2 {
@@ -43,7 +55,7 @@
         text-align: center;
         white-space: nowrap;
         font-family: "Montserrat", sans-serif;
-        font-size: 11px;
+        font-size: 0.72916vw;
         font-weight: 400;
         line-height: 22px;
         letter-spacing: 0em;
@@ -55,7 +67,7 @@
     .task {
         display: flex;
         align-items: center;
-        gap: 5px;
+        gap: 20px;
         width: 100%;
     }
 
@@ -64,12 +76,11 @@
         margin: 0;
         font-family: "Montserrat", sans-serif;
         color: rgba(46, 49, 70, 1);
-        text-align: center;
-        font-size: 12.7px;
-        font-weight: 500;
-        line-height: 27px;
+        font-size: 0.83vw;
+        font-weight: 400;
+        line-height: 22px;
         letter-spacing: 0em;
         text-align: left;
-        padding: 2px 0px 0px 10px;
+        padding-top: 1px;
     }
 </style>

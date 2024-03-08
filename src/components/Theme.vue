@@ -5,13 +5,15 @@
                 <IconArrowTheme />
             </div>
             <span class="content">{{ themeName }}</span>
-            <div v-if="all" class="all">
+            <div v-if="all && windowWidth >= 1200" class="all">
                 <span class="allTheme">Свернуть всё</span>
             </div>
         </div>
         <div v-if="showContent" class="content-dropdown">
             <div class="title">
-                <p class="text">Материалы для изучения</p>
+                <div class="text3">
+                    <p class="text">Материалы для изучения</p>
+                </div>
             </div>
             <References />
             <Glossary />
@@ -34,6 +36,7 @@
     import { defineProps } from 'vue';
     
     const showContent = ref(true);
+    const windowWidth = ref(window.innerWidth);
     
     const toggleDropdown = () => {
         showContent.value = !showContent.value;
@@ -52,25 +55,27 @@
         background: rgba(255, 255, 255, 1);
         box-shadow: 0px 0px 40px 0px rgba(29, 38, 122, 0.05);
         display: flex;
-        width: 100%;
-        border-radius: 9px;
-        padding: 24px 0px 17px 0px;
+        padding: 30px;
+        border-radius: 8px;
+        gap: 30px;
         flex-direction: column;
     }
 
     .all {
         display: flex;
         z-index: 1;
-        padding-right: 66px;
+        position: relative;
+        top: 1px;
+        right: 1px;
     }
 
     .allTheme {
         display: flex;
         white-space: nowrap;
         font-family: "Montserrat", sans-serif;
-        font-size: 12.6px;
+        font-size: 0.83vw;
         font-weight: 400;
-        line-height: 16px;
+        line-height: 22px;
         letter-spacing: 0em;
         text-align: right;
         color: rgba(39, 55, 102, 1);
@@ -78,30 +83,48 @@
 
     .title {
         display: flex;
-        padding: 29px 20px 10.5px 16px;
-        color: rgba(46, 49, 70, 1);
+        padding: 14px 20px 10px 20px;
     }
 
     .text {
         display: flex;
         font-family: "Montserrat", sans-serif;
-        font-size: 12.7px;
+        font-size: 0.83vw;
         font-weight: 400;
-        line-height: 24px;
+        line-height: 22px;
         letter-spacing: 0em;
         text-align: left;
         margin: 0;
         color: rgba(46, 49, 70, 1);
     }
 
+    .text3 {
+        display: flex;
+        padding: 0px 20px 0px 0px;
+        gap: 20px;
+    }
+
     .name {
         display: flex;
-        gap: 11px;
         cursor: pointer;
         align-items: center;
         align-items: flex-start;
-        width: 100%;
-        padding: 0px 40px 0px 26.6px;
+        padding: 0px 20px 0px 0px;
+        gap: 14px;
+    }
+
+    @media (max-width: 1200px) {
+        .name {
+            width: 80%;
+        }
+
+        .content {
+            font-size: 20px !important;
+        }
+
+        .text {
+            font-size: 16px !important;
+        }
     }
 
     .BackArrow {
@@ -109,6 +132,10 @@
         transform: rotate(0deg);
         transition: transform 0.3s ease;
         justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        top: 4px;
+        left: 2px;
     }
 
     .BackArrow-Down {
@@ -116,26 +143,32 @@
         transform: rotate(90deg);
         transition: transform 0.3s ease;
         justify-content: flex-start;
+        align-items: center;
+        position: relative;
+        top: 4px;
+        left: 2px;
     }
 
     .content {
-      display: flex;
-      text-align: start;
-      font-family: "Montserrat", sans-serif;
-      font-size: 17.7px;
-      font-weight: 500;
-      line-height: 20.7px;
-      letter-spacing: 0em;
-      color: #2E3146;
-      padding-bottom: 2px;
-      width: 88%;
+        display: flex;
+        text-align: start;
+        font-family: "Montserrat", sans-serif;
+        font-size: 1.14583vw;
+        font-weight: 500;
+        line-height: 26px;
+        letter-spacing: 0.21px;
+        text-align: left;
+        color: #2E3146;
+        width: 100%;
+        padding-left: 5px;
     }
 
     .content-dropdown {
         display: flex;
-        padding-left: 43px;
+        height: fit-content;
         flex-direction: column;
+        padding: 0px 0px 0px 24px;
+        border-radius: 15px;
+        gap: 6px;
     }
-
-
 </style>

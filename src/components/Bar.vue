@@ -18,34 +18,37 @@
     .percent{
         display: flex;
         font-family: "Montserrat", sans-serif;
-        font-size: 19px;
+        font-size: 24px;
         font-weight: 600;
         line-height: 30px;
-        letter-spacing: 0.03em;
+        letter-spacing: 0em;
         text-align: left;
         color: rgba(46, 49, 70, 1);
         align-items: center;
-        padding-left: 54px;
+    }
+
+    @media (max-width: 1200px) {
+        .percent {
+            padding-right: 20px !important;
+        }
     }
 
     .bar2 {
         display: flex;
         align-items: center;
         justify-content: center;
-        position: relative;
-        left: 31px;
     }
 
     .bar {
         background: rgba(255, 255, 255, 1);
         box-shadow: 0px 0px 30px -10px rgba(70, 73, 94, 0.15);
-        border-radius: 9px;
-        width: 100%;
-        height: 7px;
+        padding: 20px 40px 20px 40px;
+        border-radius: 8px;
+        gap: 30px;
         margin: 0px;
         display: flex;
-        padding: 24px 0px 24px 0px;
         flex-direction: row;
+        align-items: center;
     }
 
 </style>

@@ -5,7 +5,9 @@
           <IconContent />
           <span class="content">Содержание</span>
         </div>
-        <i :class="{'arrow-right': !showContent, 'arrow-down': showContent}"></i>
+        <div :class="{'arrow-right': !showContent, 'arrow-down': showContent}">
+          <IconArrow />
+        </div>
       </div>
       <div v-if="showContent" class="content-dropdown">
         <DropDownList title="Тема 1. Основы технологии производства ЭС" />
@@ -18,6 +20,7 @@
 <script setup>
     import IconContent from './icons/IconContent.vue';
     import DropDownList from './DropDownList.vue';
+    import IconArrow from './icons/IconArrow.vue';
     import { ref } from 'vue';
     
     const showContent = ref(true);
@@ -31,74 +34,76 @@
 
     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
     .dropdown {
-        width: 100%;
-        cursor: pointer;
-        display: flex;
-        align-items: center;
-        position: relative;
-        margin: 0 20px 0px 25px;
-    }
+      width: 100%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      position: relative;
+      max-height: 24px;
+      padding: 0px 30px 0px 30px;
+      justify-content: space-between;
 
-    i {
-        display: flex;
-        position: absolute;
-        right: 9px;
-        align-items: center;
-        bottom: 8px;
     }
 
     .content {
       display: flex;
       align-items: center;
       font-family: "Montserrat", sans-serif;
-      font-size: 11px;
+      height: 100%;
+      font-size: 0.72916vw;
       font-weight: 400;
-      line-height: 18px;
+      line-height: 22px;
       letter-spacing: 0em;
-      color: #2E3146;
+      text-align: left;
+      color: rgba(46, 49, 70, 1);
+    }
+
+    @media (max-width: 1200px) {
+      .content {
+        font-size: 14px !important;
+      }
+
+      .full {
+        padding-top: 0px !important;
+      }
     }
 
     .IconContentAndContent{
       display: flex;
-      gap: 16px;
+      width: 100%;
+      max-width: 251px;
+      max-height: 24px;
+      gap: 20px;
     }
 
     .full {
-        width: 100%;
-        display: flex;
-        align-items: center;
-        flex-wrap: wrap;
-        position: relative;
-        top: 4px;
+      width: 100%;
+      display: flex;
+      height: fit-content;
+      align-items: center;
+      flex-wrap: wrap;
+      position: relative;
+      gap: 20px;
+      padding: 30px 0px 18px 0px;
     }
     
     .arrow-right {
-        border: solid #71809B;
-        border-width: 0 2px 2px 0;
-        padding: 3px;
-        transform: rotate(-45deg);
-        transition: transform 0.3s ease;
+      margin-top: 2px;
+      transform: rotate(-90deg);
+      transition: transform 0.3s ease;
     }
     
     .arrow-down {
-        border: solid #71809B;
-        border-width: 0 2px 2px 0;
-        padding: 3px;
-        transform: rotate(45deg);
-        transition: transform 0.3s ease;
-    }
-
-    @media (max-width: 1200px) {
-      .content-dropdown {
-        padding-right: 50px !important;
-      }
+      margin-top: 2px;
+      transform: rotate(0deg);
+      transition: transform 0.3s ease;
     }
     
     .content-dropdown {
-      margin-top: 16px;
       width: 100%;
-      border-radius: 8px;
-      background-color: #EEF3FA;
+      height: fit-content;
+      border-radius: 15px;
+      background-color: rgba(236, 241, 248, 0.5);
     }
 </style>
   
