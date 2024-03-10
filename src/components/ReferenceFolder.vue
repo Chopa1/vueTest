@@ -53,7 +53,7 @@
         }
         
         .text1 {
-            font-size: 10px !important;
+            font-size: 12px !important;
         }
 
         .fullText {

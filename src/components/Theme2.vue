@@ -183,6 +183,7 @@
         padding: 0px 0px 0px 24px;
         border-radius: 15px;
         gap: 6px;
+        transition-duration: 1s;
     }
     
 
